@@ -14,7 +14,7 @@ services:
     networks:
       - traefik_proxy
     ports:
-      - "3305:3305"
+      - "3305:3306"
 networks:
   traefik_proxy:
     name: traefik_proxy
