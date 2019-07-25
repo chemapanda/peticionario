@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  peticionario-mariadb:
+    image: linuxserver/mariadb
+    container_name: peticionario-mariadb
+    restart: always
+    volumes:
+      - ./volumes/mariadb:/config
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_PASS}
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TIMEZONE}
+    networks:
+      - traefik_proxy
+    ports:
+      - "3305:3305"
+networks:
+  traefik_proxy:
+    name: traefik_proxy
